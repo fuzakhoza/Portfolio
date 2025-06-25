@@ -1,0 +1,61 @@
+
+ *{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+ }
+ body{
+    background-color: rgb(71, 91, 109);
+    margin-top: 30px;
+ }
+ .container{
+    max-width: 200px;
+    margin: auto;
+    background-color: rgb(66, 131, 131);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px;
+    align-items: center;
+ }
+ #input-box{
+    max-width: 50%;
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+ }
+ #btn{
+    position:relative;
+    display: inline-block;
+    max-width: 60px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgb(102, 255, 0);
+    color: rgba(66, 72, 77, 0.87);
+    cursor: pointer;
+    border: 0;
+    box-shadow: 3px 3px blue;
+    margin-top: 10px;
+ }
+ #btn:hover{
+    background-color:  rgb(65, 99, 43);
+    color:#fff;
+ }
+ #metre-box{
+    margin-top: 0px;
+ }
+ #kilometre-box{
+    margin-top: 0px;
+ }
+ #myPelement{
+    margin-top: 10px;
+    border: 2px solid gray;
+    padding: 5px;
+    color: #fff;
+ }

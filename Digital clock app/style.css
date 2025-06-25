@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+.hero{
+    width: 100%;
+    min-height: 100vh;
+    background-color: navy;
+    color: white;
+    position: relative;
+}
+.container{
+    width: 800px;
+    height: 180px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.clock{
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    
+
+}
+span{
+    font-size: 50px;
+
+
+}
+.container::before{
+    content: "";
+    width: 150px;
+    height: 150px;
+    background-color: blueviolet;
+    left: -50px;
+    top: -50px;
+    position: absolute;
+}
+    
+.container::after{
+    content: "";
+    width: 150px;
+    height: 150px;
+    background-color: blue;
+    right: -50px;
+    bottom: -50px;
+    position: absolute;
+    border-radius: 50%;
+    
+}
+.hrs::after{
+    content: "HOUR";
+    position:relative;
+    font-size: 15px;
+    top: 20px;
+    right: 50px;
+}
+
+.min::after{
+    content: "MIN";
+    position:relative;
+    font-size: 15px;
+    top: 20px;
+    right: 50px;
+}
+
+.sec::after{
+    content: "SEC";
+    position:relative;
+    font-size: 15px;
+    top: 20px;
+    right: 50px;
+}

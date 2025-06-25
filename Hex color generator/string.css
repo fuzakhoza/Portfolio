@@ -1,0 +1,17 @@
+.todo{
+    max-width: 400px;
+    height: 400px;
+    border: 2px solid;
+    background-color: rgb(50, 30, 100);
+    text-align: center;
+    padding: 50px;
+    margin: auto;
+}
+.create-color, .copy-color{
+    padding: 10px 20px;
+    background-color: aqua;
+    font-weight: bold;
+}
+.color-value{
+    color: #ffffff;
+}

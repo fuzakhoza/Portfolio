@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+body{
+    background-color: rgba(39, 42, 44, 0.404);
+}
+.todo{
+    max-width: 95%;
+    background-color: rgb(31, 172, 172);
+    margin: auto;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+
+
+}
+h1{
+    color: paleturquoise;
+    font-size: 45px;
+    margin-bottom: 20px;
+} 
+/* .display{
+    max-width: 100%;
+    font-size: 20px;
+    display: grid;
+    flex-direction: column;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    text-align: center; */
+    
+   
+input{
+    font-size: 18px;
+    padding: 10px;
+    margin: 20px;
+    width: 150px;
+    border-radius: 10px; 
+    border: 0;
+    font-weight: bold;
+    
+
+}  
+#btn{
+    width: 60px;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+    background-color: rgb(70, 111, 173);
+    color: rgb(168, 161, 148);
+    cursor: pointer;
+    font-weight: bold;
+}
+#btn:hover{
+    background-color: blue;
+}
+.p-tag{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px;
+    font-size: 20px;
+    background-color: rgb(131, 150, 46);
+    padding: 10px;
+}
+.span1{
+    background-color: rgb(0, 174, 255);
+    padding: 10px;
+    margin: 0 auto;
+    color: rgb(143, 39, 108);
+}
+.span2{
+    width: 100px;
+    color: rgb(227, 241, 20);
+
+
+}
+.deleteBtn{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0ch;
+    font-weight: bolder;
+    background-color: rgb(209, 28, 179);
+    color: rgb(0, 255, 42);
+}
+.deleteBtn:hover{
+    background-color: rgb(226, 43, 165);
+}
+   

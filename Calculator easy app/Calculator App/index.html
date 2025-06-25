@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+        <div class="calculator">
+    
+            <input type="text" name="text" class="display" >
+            <div class="buttons">
+                <div>
+                    <button onclick="clearBtn()">AC</button>
+                    <button onclick="deleteBtn()">DE</button>
+                    <button onclick="btnClick(numdMsg)">.</button>
+                    <button onclick="btnClick(numsMsg)">/</button>
+                </div>
+                <div>
+                    <button onclick = "btnClick(num7Msg)">7</button>
+                    <button onclick ="btnClick(num8Msg)">8</button>
+                    <button onclick="btnClick(num9Msg)">9</button>
+                    <button onclick="btnClick(numtMsg)">*</button>
+                </div>
+                <div>
+                    <button onclick="btnClick(num4Msg)">4</button>
+                    <button onclick="btnClick(num5Msg)">5</button>
+                    <button onclick="btnClick(num6Msg)">6</button>
+                    <button onclick="btnClick(nummMsg)">-</button>
+                </div>
+                <div>
+                    <button onclick="btnClick(num1Msg)">1</button>
+                    <button onclick="btnClick(num2Msg)">2</button>
+                    <button onclick="btnClick(num3Msg)">3</button>
+                    <button onclick="btnClick(numpMsg)">+</button>
+                </div>
+                <div>
+                    <button onclick="btnClick(num00Msg)">00</button>
+                    <button onclick="btnClick(num0Msg)">0</button>
+                    <button class="equal" onclick="equalBtn()">=</button>
+                </div>
+            </div>
+
+        </div>
+    
+ <script src="script.js"></script>   
+</body>
+</html>

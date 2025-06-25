@@ -1,0 +1,23 @@
+.todo{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    height: 400px;
+    border: 2px solid;
+    background-color: rgb(50, 30, 100);
+    text-align: center;
+    padding: 50px;
+    margin: auto;
+}
+.create-rgb, .copy-rgb{
+    padding: 10px 20px;
+    background-color: aqua;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.color-value{
+    color: #ffffff;
+}
+.copy-rgb{
+    margin-top: 20px;
+}

@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  serif,sans-serif;
+}
+body{
+    background-color: rgb(182, 165, 165);
+}
+.container{
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    padding: 30px;
+    background-color: aqua;
+}
+h1{
+    font-size: 25px;
+    color: rgb(3, 9, 94);
+    margin-bottom: 20px;
+}
+span{
+    color: rgb(1, 65, 1);
+    font-size: 30px;
+    font-family: "arial", sans-serif;
+    text-decoration: underline;
+}
+button{
+    background-color: rgb(3, 3, 53);
+    text-align: center;
+    padding: 10px;
+    color: aliceblue;
+    border: none;
+}
+.generator{
+    margin-bottom: 20px;
+}
+.display-password{
+   background-color: aliceblue; 
+   width: 120px;
+   margin-bottom: 20px;
+   padding: 5px;
+   font-weight: bolder;
+}
+button:hover{
+   background-color: rgb(3, 3, 80); 
+}
