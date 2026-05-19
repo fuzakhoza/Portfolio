@@ -5,7 +5,7 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background-color: rgb(200, 200, 240);
+    background-color: rgb(129, 129, 241);
     max-width: 900px;
     margin: auto;
     padding: 30px;
@@ -82,9 +82,9 @@ gap: 20px;
 margin-bottom: 50px;
 align-items: center;
 }
-.description-about-me h3{
+.description-about-me h2{
     margin-bottom: 20px;
-    color: grey;
+    color: rgba(24, 23, 23, 0.726);
 }
 .description-about-me, .my-photo{
     width: 50%;
@@ -98,14 +98,23 @@ align-items: center;
 }
 .my-photo img{
     width: 80%;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    max-height: 500px;
+    transition: transform 0.4s ease;
 }
+.my-photo img:hover{
+    transform: scale(1.02);
+}
+
 #things-i-do{
 display: flex;
 gap: 20px;
 margin-bottom: 50px;
 align-items: center;
 }
+
 .deccorating-photo, .description-things-i-do{
     width: 50%;
     align-items: center;
@@ -115,15 +124,41 @@ align-items: center;
     text-align: center;
 }
 .deccorating-photo img{
-    width: 80%;
-    object-fit: contain;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    max-height: 500px;
+    transition: transform 0.4s ease;
 }
-.description-things-i-do h3{
+.deccorating-photo img:hover{
+    transform: scale(1.02);
+}
+
+
+.description-things-i-do h2{
     margin-bottom: 20px;
-    color: grey;
+    color: rgb(61, 60, 60);
 }
-.description-things-i-do ul{
-    list-style: none;
+.web-app{
+    color: rgb(2, 2, 75);
+    margin: 10px 0;
+}
+.services-list{
+    background: #262626;
+    padding: 40px;
+    font-size: 14px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.3s;
+}
+.services-list div:hover{
+    background: #ff004f;
+    transform: translateY(-10px);
+}
+.services-list div i{
+    font-size: 50px;
+    margin-bottom: 30px;
 }
 #project{
 text-align: center;
@@ -156,12 +191,13 @@ line-height: 1.5;
 #contact{
     margin-bottom: 30px;
     width: 100%;
-    color: rgb(39, 38, 38);
+    color: rgb(22, 21, 21);
 }
 #contact h3{
     margin-bottom: 30px;
-    color: grey;
+    color: rgb(85, 84, 84);
 }
+
 footer{
     text-align: center;
     background-color:rgb(147, 167, 185);
@@ -187,10 +223,20 @@ footer h1::after{
    text-shadow: 1px 1px 1px rgb(56, 55, 55);
 }
 footer a img{
-    width: 20px;
+    width: 30px;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 15px;
+    color: #ababab;
+    transform: color 0.3s ease, transform 0.3s ease;
+}
+footer a img:hover{
+    color: #ff004f;
+    transform: translateY(-5px);
 }
 footer p{
     font-size: small;
+    margin-bottom: 10px;
 }
 .menu{
     display: none;
