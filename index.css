@@ -134,6 +134,28 @@ align-items: center;
 .deccorating-photo img:hover{
     transform: scale(1.02);
 }
+.work img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    max-height: 500px;
+    transition: transform 0.4s ease;
+}
+.work button{
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: rgb(2, 2, 75);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.work button:hover{
+    background-color: rgb(5, 5, 248);
+    transform: translateY(-5px);
+}
 
 
 .description-things-i-do h2{
@@ -172,10 +194,21 @@ margin-bottom: 30px;
 }
 #project ul{
     list-style: none;
+    border: #262626 solid 2px;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
 }
-#project p{
-margin-bottom: 10px;
+#contact p{
+display: flex;
+margin: 10px 0;
+align-items: center;
 color: rgb(83, 72, 72);
+}
+#contact  img{
+    width: 30px;
+    border-radius: 50%;
 }
 #project a{
 text-decoration: none;
