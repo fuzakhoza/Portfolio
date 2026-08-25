@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedy Mure en Plaveisel — Quote Engine</title>
+    <style>
+        :root {
+            --bg-slate: #f8fafc; --navy-dark: #0f172a; --indigo-primary: #4f46e5;
+            --border-slate: #e2e8f0; --text-dark: #1e293b; --text-muted: #64748b;
+            --emerald-bg: #ecfdf5; --emerald-text: #047857;
+        }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg-slate); color: var(--text-dark); margin: 0; padding: 0; }
+        header { background-color: var(--navy-dark); color: #ffffff; padding: 20px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .logo-group h1 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: 0.5px; }
+        .logo-group span { font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: 700; }
+        main { max-width: 1000px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-cols: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: #ffffff; border: 1px solid var(--border-slate); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
+        .card-title { font-size: 16px; font-weight: 800; margin-top: 0; margin-bottom: 20px; color: var(--navy-dark); text-transform: uppercase; border-bottom: 2px solid var(--border-slate); padding-bottom: 8px; }
+        .style-grid { display: grid; grid-template-cols: 1fr; gap: 12px; margin-bottom: 20px; }
+        .style-option { border: 2px solid var(--border-slate); border-radius: 12px; padding: 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s ease; }
+        .style-option:hover { border-color: var(--indigo-primary); background-color: #f8fafc; }
+        .style-option.selected { border-color: var(--indigo-primary); background-color: #f5f3ff; }
+        .style-name { font-weight: 700; font-size: 14px; }
+        .style-price { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px; }
+        .form-group input { width: 100%; padding: 10px 14px; border: 1px solid var(--border-slate); border-radius: 8px; font-size: 14px; box-sizing: border-box; outline: none; transition: border 0.2s; }
+        .form-group input:focus { border-color: var(--indigo-primary); }
+        .btn-calc { background-color: var(--indigo-primary); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; transition: background 0.2s; }
+        .btn-calc:hover { background-color: #4338ca; }
+        .output-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed var(--border-slate); font-size: 14px; }
+        .output-total { display: flex; justify-content: space-between; padding-top: 16px; margin-top: 10px; font-size: 18px; font-weight: 800; color: var(--navy-dark); }
+        .dev-badge { text-align: center; margin-top: 20px; font-size: 11px; font-weight: 700; color: var(--indigo-primary); text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        /* HIDE RESULT BY DEFAULT ENGINE */
+        #result_card { display: none; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-group">
+            <h1>Speedy Mure en Plaveisel</h1>
+            <span>Precast Engineering Calculator Node</span>
+        </div>
+        <div style="font-size: 12px; font-weight: bold; color: #a7f3d0;">● LIVE CLIENT MODULE</div>
+    </header>
+
+    <main>
+        <div class="card">
+            <h3 class="card-title">1. Select Concrete Style</h3>
+            <div class="style-grid" id="style_selector">
+                <div class="style-option selected" data-price="350" onclick="selectStyle(this)">
+                    <span class="style-name">Luval Pattern Wall</span>
+                    <span class="style-price">R350 / meter</span>
+                </div>
+                <div class="style-option" data-price="420" onclick="selectStyle(this)">
+                    <span class="style-name">Brick-Bricks Dynamic Face</span>
+                    <span class="style-price">R420 / meter</span>
+                </div>
+                <div class="style-option" data-price="490" onclick="selectStyle(this)">
+                    <span class="style-name">Remington-Stone Premium</span>
+                    <span class="style-price">R490 / meter</span>
+                </div>
+            </div>
+
+            <h3 class="card-title">2. Dimensional Metrics</h3>
+            <div class="form-group">
+                <label>Total Wall Length (Meters):</label>
+                <input type="number" id="wall_length" placeholder="Enter length...">
+            </div>
+            <div class="form-group">
+                <label>Target Wall Height (Meters):</label>
+                <input type="number" id="wall_height" placeholder="Enter height...">
+            </div>
+            <button class="btn-calc" onclick="calculateQuote()">Generate Instant Estimate</button>
+            
+            <div class="dev-badge">Engineered Securely by Fuza Ka Khoza</div>
+        </div>
+        <!-- RIGHT COLUMN: DYNAMIC INVOICE GENERATOR (CONTAINER GATED) -->
+        <div class="card" id="result_card" style="flex-direction: column; justify-content: space-between;">
+            <div>
+                <h3 class="card-title">3. Estimated Cost Ledger</h3>
+                <div class="output-row">
+                    <span>Selected Material Template:</span>
+                    <strong id="ledg_style">Luval Pattern</strong>
+                </div>
+                <div class="output-row">
+                    <span>Total Linear Coverage:</span>
+                    <strong id="ledg_length">0 m</strong>
+                </div>
+                <div class="output-row">
+                    <span>Structural Multiplier (Height):</span>
+                    <strong id="ledg_height">0 m</strong>
+                </div>
+                <div class="output-row">
+                    <span>Base Material Cost:</span>
+                    <strong id="ledg_base">R0.00</strong>
+                </div>
+                <div class="output-row">
+                    <span>Estimated Labor & Transport (Parys Node):</span>
+                    <strong id="ledg_labor" style="color: var(--emerald-text);">R0.00</strong>
+                </div>
+            </div>
+
+            <div>
+                <div class="output-total" style="border-top: 2px solid var(--navy-dark);">
+                    <span>Total Projected Estimate:</span>
+                    <span id="ledg_total" style="color: var(--indigo-primary);">R0.00</span>
+                </div>
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 15px; font-style: italic; text-align: center;">
+                    *Secure terminal token active. Auto-closing metrics ledger after 7 seconds.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let currentPricePerMeter = 350;
+        let currentStyleName = "Luval Pattern";
+
+        function selectStyle(element) {
+            document.querySelectorAll('.style-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            currentPricePerMeter = parseInt(element.getAttribute('data-price'));
+            currentStyleName = element.querySelector('.style-name').innerText;
+        }
+
+        function calculateQuote() {
+            let length = parseFloat(document.getElementById('wall_length').value);
+            let height = parseFloat(document.getElementById('wall_height').value);
+            
+            if (!length || !height) {
+                alert("Please input valid length and height metrics first, mfethu!");
+                return;
+            }
+            
+            // South African Precast Concrete Equation
+            let baseCost = length * (height / 1.8) * currentPricePerMeter;
+            let laborCost = 1200 + (length * 15); 
+            let totalQuote = baseCost + laborCost;
+            
+            // Map data straight onto invoice text fields
+            document.getElementById('ledg_style').innerText = currentStyleName;
+            document.getElementById('ledg_length').innerText = length + " m";
+            document.getElementById('ledg_height').innerText = height + " m";
+            document.getElementById('ledg_base').innerText = "R" + baseCost.toLocaleString('en-ZA', {minimumFractionDigits: 2});
+            document.getElementById('ledg_labor').innerText = "R" + laborCost.toLocaleString('en-ZA', {minimumFractionDigits: 2});
+            document.getElementById('ledg_total').innerText = "R" + totalQuote.toLocaleString('en-ZA', {minimumFractionDigits: 2});
+            
+            // REVEAL CARD
+            let card = document.getElementById('result_card');
+            card.style.display = "flex";
+            
+            // TIMEOUT COUNTER MATRIX: Resets fields and hides card after 7 seconds
+            setTimeout(function() {
+                card.style.display = "none";
+                document.getElementById('wall_length').value = "";
+                document.getElementById('wall_height').value = "";
+            }, 7000); 
+        }
+    </script>
+</body>
+</html>
